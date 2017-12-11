@@ -3,10 +3,7 @@ package ids
 import com.fasterxml.jackson.annotation.JsonValue
 import org.joda.convert.ToString
 
-import java.io.Serializable
-import java.util.Objects
 import java.util.regex.Pattern
-
 /**
  * An abstract class designed to enable typed strings.
  * <p>
@@ -47,7 +44,7 @@ abstract class TypedString<T extends TypedString<T>>
     /**
      * The name.
      */
-    private final String name
+    final String name
 
     /**
      * Creates an instance.

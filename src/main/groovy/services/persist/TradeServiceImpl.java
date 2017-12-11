@@ -1,4 +1,4 @@
-package services;
+package services.persist;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
@@ -82,7 +82,7 @@ public class TradeServiceImpl<T extends Trade> extends AbstractService<T, TradeI
 
     @Transactional
     public T createOrUpdate(T trade) {
-        T byId = find(trade.tradeId);
+        T byId = find(trade.getTradeId());
         if(byId != null) {
             delete(byId);
         }
@@ -104,7 +104,7 @@ public class TradeServiceImpl<T extends Trade> extends AbstractService<T, TradeI
 
     private <S extends T> List<TradeId> tradeIds(Iterable<S> trades) {
         return StreamSupport.stream(trades.spliterator(), false)
-                .map(trade -> trade.tradeId)
+                .map(trade -> trade.getTradeId())
                 .filter(Objects::nonNull)
                 .collect(toList());
     }

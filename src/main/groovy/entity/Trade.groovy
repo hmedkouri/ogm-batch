@@ -5,10 +5,12 @@ import converters.CurrencyConverter
 import converters.LocalDateConverter
 import converters.LocalTimeConverter
 import converters.TypedStringConverter
+import groovy.transform.Canonical
 import ids.TradeId
 import org.neo4j.ogm.annotation.Index
 import org.neo4j.ogm.annotation.NodeEntity
 import org.neo4j.ogm.annotation.Property
+import org.neo4j.ogm.annotation.Relationship
 import org.neo4j.ogm.annotation.typeconversion.Convert
 
 import java.time.LocalDate
@@ -17,6 +19,7 @@ import java.util.function.Function
 
 
 @NodeEntity
+@Canonical
 abstract class Trade<T extends Trade> extends Entity<T> {
 
     Function<T, String> findQuery() { return { swap -> "" } }
@@ -24,34 +27,43 @@ abstract class Trade<T extends Trade> extends Entity<T> {
     @Property(name = "id")
     @Index(primary = true)
     @Convert(TypedStringConverter.TradeIdConverter.class)
-    public TradeId tradeId
+    TradeId tradeId
 
-    private String underlyingAssetId
+    String underlyingAssetId
 
-    private Double notional
+    Double notional
 
-    private String buySellProtection
+    String buySellProtection
 
-    private Double couponRate
+    Double couponRate
 
     @Convert(LocalDateConverter.class)
-    private LocalDate tradeDate
+    LocalDate tradeDate
 
     @Convert(LocalTimeConverter.class)
-    private LocalTime tradeTime
+    LocalTime tradeTime
 
     @Convert(LocalDateConverter.class)
-    private LocalDate maturity
+    LocalDate maturity
 
     @Convert(LocalDateConverter.class)
-    private LocalDate clearingDate
+    LocalDate clearingDate
 
     @Convert(CurrencyConverter.class)
-    private Currency currency
+    Currency currency
 
-    private String underlyingEntity
+    String underlyingEntity
 
-    private Double factor
+    Double factor
 
-    private String seniority
+    String seniority
+
+    @Relationship(type = "PRICING_SOURCE")
+    PricingSource pricingSource
+
+    @Relationship(type = "BELONGS_TO")
+    Portfolio portfolio
+
+    @Relationship(type = "POSITIONS_ON", direction = Relationship.INCOMING)
+    TradingAccount account
 }

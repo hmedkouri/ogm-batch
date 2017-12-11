@@ -1,4 +1,4 @@
-package services;
+package services.persist;
 
 import com.google.inject.persist.Transactional;
 import org.neo4j.ogm.session.Session;

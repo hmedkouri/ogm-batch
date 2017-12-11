@@ -4,7 +4,7 @@ import entity.FRA
 import ids.TradeId
 import modules.InProcessNeo4jServerModule
 import modules.RepositoryModule
-import services.TradeService
+import services.persist.TradeService
 import spock.guice.UseModules
 import spock.lang.Specification
 

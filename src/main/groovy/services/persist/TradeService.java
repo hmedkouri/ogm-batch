@@ -1,4 +1,4 @@
-package services;
+package services.persist;
 
 import entity.IRS;
 import entity.Trade;
@@ -12,11 +12,11 @@ public interface TradeService<T extends Trade> extends Service<T, TradeId> {
 
     Iterable<T> findBilateralTradesByClientId(ClientId clientId);
 
-    <T extends Trade> Iterable<T> findByPortfolioId(PortfolioId... ids);
+    public <T extends Trade> Iterable<T> findByPortfolioId(PortfolioId... ids);
 
     Iterable<IRS> findAllIRS();
 
-    <S extends T> Iterable<S> createOrUpdate(Iterable<S> trades);
+    public <S extends T> Iterable<S> createOrUpdate(Iterable<S> trades);
 
     Iterable<T> findAllTradeByIds(List<TradeId> ids);
 }

@@ -6,8 +6,8 @@ import com.google.inject.name.Names
 import entity.FRA
 import entity.IRS
 import entity.Trade
-import services.TradeService
-import services.TradeServiceImpl
+import services.persist.TradeService
+import services.persist.TradeServiceImpl
 
 class RepositoryModule extends AbstractModule {
 
