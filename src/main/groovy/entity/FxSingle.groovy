@@ -16,6 +16,9 @@ import static java.util.stream.Collectors.toSet
 
 class FxSingle extends Entity<FxSingle> {
 
+    FxSingle() {
+    }
+
     @Convert(LocalDateConverter)
     LocalDate payDate
 

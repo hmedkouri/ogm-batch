@@ -29,6 +29,8 @@ abstract class Trade<T extends Trade> extends Entity<T> {
     @Convert(TypedStringConverter.TradeIdConverter.class)
     TradeId tradeId
 
+    String tradeType
+
     String underlyingAssetId
 
     Double notional

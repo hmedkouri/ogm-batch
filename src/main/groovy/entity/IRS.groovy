@@ -6,8 +6,6 @@ import org.neo4j.ogm.annotation.Relationship
 @NodeEntity
 class IRS extends Trade<IRS>{
 
-    String tradeType
-
     @Relationship(type = "PAYS")
     Set<Leg> payLegs
 

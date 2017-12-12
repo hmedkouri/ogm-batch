@@ -6,8 +6,6 @@ import org.neo4j.ogm.annotation.Relationship
 @NodeEntity
 class FRA extends Trade<FRA> {
 
-    String tradeType
-
     String legPay
 
     Double notional

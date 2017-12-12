@@ -10,6 +10,9 @@
     <logger name="org.neo4j.ogm.drivers.bolt.request" level="warn"/>
     <logger name="org.neo4j.ogm.drivers.bolt.response" level="warn"/>
     <logger name="org.neo4j.ogm.context" level="warn"/>
+    <logger name="com.acuo.collateral.transform" level="error"/>
+
+    <logger name="services.upload" level="info"/>
 
     <root level="warn">
         <appender-ref ref="console" />

@@ -1,8 +1,11 @@
 package services.upload
 
+import entity.Trade
+import services.upload.strategy.PersistStrategy
+
 
 interface TradeUploadService {
 
-    List<String> fromExcel(InputStream fis)
+    Iterable<Trade> fromExcel(InputStream fis, PersistStrategy strategy)
 
 }

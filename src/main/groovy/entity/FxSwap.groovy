@@ -8,8 +8,12 @@ import org.neo4j.ogm.annotation.Relationship
 
 class FxSwap extends Trade<FxSwap> {
 
+    FxSwap() {
+    }
+
     FxSwap(FxSwapTrade model) {
         final TradeInfo info = model.getInfo()
+        setTradeType("FXSWAP")
         setTradeId(TradeId.fromString(info.getTradeId()))
         setTradeDate(info.getTradeDate())
         setTradeTime(info.getTradeTime() != null ? info.getTradeTime().toLocalTime() : null)
